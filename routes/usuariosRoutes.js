@@ -1,27 +1,15 @@
-const express = require('express');
+import express from 'express';
+import usuariosController from '../controllers/usuariosController.js';
 const router = express.Router();
-const usuariosController = require('../controllers/usuariosController.js');
 
+//Rutas base para usuarios
 router.get('/', usuariosController.consultarUsuarios);
+router.post('/', usuariosController.addUsuarios);
 
-router.post('/', usuariosController.addUsuario);
-
-// router.get('/:id', (req, res) =>{
-//     res.json({msg: 'Consulta de usuario por ID'});
-// });
-
-// router.put('/:id', (req, res) =>{
-//     res.json({msg: 'Actualización de usuario'});
-// });
-
-// router.delete('/:id', (req, res) =>{
-//     res.json({msg: 'Borrado de usuario'});
-// });
-
+// Rutas para operaciones específicas con usuarios agrupadas con .route()
 router.route('/:id')
     .get(usuariosController.consultarDetalleUsuario)
     .put(usuariosController.updateUsuario)
     .delete(usuariosController.deleteUsuario);
 
-
-module.exports = router;
+export default router;

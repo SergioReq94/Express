@@ -1,12 +1,16 @@
-const express = require('express');
+import express from 'express';
+import usuariosRoutes from './routes/UsuariosRoutes.js';
 const app = express();
-const usuariosRoutes = require('./routes/usuariosRoutes.js');
+
+// Middleware necesario para procesar JSON en el cuerpo de las peticiones
+app.use(express.json());
 
 app.get('/', (req, res) =>{
     res.send('Hola mundo');
 });
 
-app.use("/usuarios", usuariosRoutes); //Esta línea nos permite utilizar el modelo usuarios sin tener que reescribir las rutas.
+// Rutas para usuarios
+app.use("/usuarios", usuariosRoutes); 
 
 app.listen(6800, () => {
     console.log('Servidor conectado');

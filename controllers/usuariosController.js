@@ -1,5 +1,3 @@
-const { request } = require("express");
-
 class UsuariosController {
     constructor() {
 
@@ -10,7 +8,7 @@ class UsuariosController {
     }
 
     consultarDetalleUsuario(req, res) {
-        const id = req.params.id; //Aquí podemos obtener el ID del usuario que se ha pasado por la URL.
+        const {id} = req.params; //Aquí podemos obtener el ID del usuario que se ha pasado por la URL, también es válido añadir .id al final de req.params, pero es más común usar destructuring para obtenerlo directamente.
         res.json({msg: `Consulta de usuario por ID desde el controlador con id: ${id}`});
     }
 
@@ -27,4 +25,4 @@ class UsuariosController {
     }   
 }
 
-module.exports = new UsuariosController();
+export default new UsuariosController();
