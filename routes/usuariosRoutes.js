@@ -4,7 +4,7 @@ const router = express.Router();
 
 //Rutas base para usuarios
 router.get('/', usuariosController.consultarUsuarios);
-router.post('/', usuariosController.addUsuarios);
+router.post('/', usuariosController.addUsuario);
 
 // Rutas para operaciones específicas con usuarios agrupadas con .route()
 router.route('/:id')

@@ -1,5 +1,5 @@
 import express from 'express';
-import usuariosRoutes from './routes/UsuariosRoutes.js';
+import usuariosRoutes from './routes/usuariosRoutes.js';
 const app = express();
 
 // Middleware necesario para procesar JSON en el cuerpo de las peticiones
